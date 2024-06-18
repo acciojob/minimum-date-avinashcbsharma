@@ -1,5 +1,12 @@
 function minDate(dates) {
-  //write you code here
+    if (!Array.isArray(dates) || dates.length === 0) {
+        return null; 
+    }
+   
+    const dateObjects = dates.map(dateStr => new Date(dateStr));
+    const earliestDate = new Date(Math.min(...dateObjects));
+    const formattedDate = `${earliestDate.getFullYear()}/${earliestDate.getMonth() + 1}/${earliestDate.getDate()}`;
+    return formattedDate;
 }
 
 // Do not change the code
